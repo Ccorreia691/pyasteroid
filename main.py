@@ -5,6 +5,8 @@ from logger import log_state
 def main():
     print(f"Starting Asteroids with pygame version: {pygame.version.ver}\nScreen width: {SCREEN_WIDTH}\nScreen height: {SCREEN_HEIGHT}")
     pygame.init()
+    clock = pygame.time.Clock()
+    dt = 0
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))    
     gameExit = False
     while not gameExit:
@@ -13,7 +15,10 @@ def main():
             if event.type == pygame.QUIT:
                 return
         screen.fill("black")
-        pygame.display.flip()    
+        pygame.display.flip()
+        clock.tick(60)
+        dt = clock.tick()/1000
+            
        
 
 
